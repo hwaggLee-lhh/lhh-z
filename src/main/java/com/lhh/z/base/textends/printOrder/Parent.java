@@ -8,6 +8,7 @@ package com.lhh.z.base.textends.printOrder;
 public class Parent {
 	
 	public Parent(){
+		
 		System.out.println("Parent...");
 		//printOverride();
 	}

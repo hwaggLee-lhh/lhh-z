@@ -8,6 +8,7 @@ package com.lhh.z.base.textends.printOrder;
 public class My extends Parent{
 
 	public My(){
+		
 		System.out.println("My extends Parent...");
 	}
 	
