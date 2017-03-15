@@ -38,6 +38,7 @@ public class ResourceListener {
   public static void addListener(String path) throws IOException {  
       ResourceListener resourceListener = new ResourceListener(path);  
       Path p = Paths.get(path);  
+      //监控目录内文件的更新、创建和删除事件
       p.register(resourceListener.ws,StandardWatchEventKinds.ENTRY_MODIFY,  
           StandardWatchEventKinds.ENTRY_DELETE,  
           StandardWatchEventKinds.ENTRY_CREATE);  
@@ -65,7 +66,8 @@ class Listner implements Runnable {
               List<WatchEvent<?>> watchEvents = watchKey.pollEvents();  
               for(WatchEvent<?> event : watchEvents){  
                   //TODO 根据事件类型采取不同的操作。。。。。。。  
-                  System.out.println("["+rootPath+"/"+event.context()+"]文件发生了["+event.kind()+"]事件");    
+                  System.out.println("["+rootPath+"/"+event.context()+"]文件发生了["+event.kind()+"]事件");   
+                  System.out.println(event.kind().name());
               }  
               watchKey.reset();  
           }  
